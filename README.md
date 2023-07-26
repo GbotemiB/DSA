@@ -1,1 +1,1 @@
-# Solutions to Leetcode Interview problems in python
+This Repository contains my solutions to DSA questions.
