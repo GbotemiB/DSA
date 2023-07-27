@@ -8,25 +8,16 @@ import math
 def return_missing_balanced_numbers(input):
     # Write your code here
     dict_array = {}
-    max = 0
-    final_dict = {}
     
     for item in input:
-      if dict_array.get(item) == None:
-        dict_array[item] = 1
-      else:
+      if item in dict_array:
         dict_array[item] += 1
+      else:
+        dict_array[item] = 1
     
-    for item in dict_array.values():
-      if item > max:
-        max = item
+    max_value = max(dict_array.values())
 
-    for item in dict_array:
-      dict_array[item] = max - dict_array[item]
-      
-    for i in dict_array:
-      if dict_array[i] > 0:
-        final_dict[i] = dict_array[i]
+    final_dict = {k : max_value - v for k, v in dict_array.items() if v < max_value}
    
     return final_dict
   
