@@ -7,12 +7,19 @@ import math
 
 def character_frequency(s, c):
   # Write your code here. NOTE: please do not use collections.counter() in the real interview.
-  length_char = 0
-  for letter in s:
-    if letter == c:
-      length_char += 1
-  return length_char
+  char_dict = {}
   
+  for letter in s:
+    if letter in char_dict:
+      char_dict[letter] += 1
+    else:
+      char_dict[letter] = 1
+     
+  if char_dict.get(c) == None:
+    return 0
+  else:
+    return char_dict[c]
+        
 
 
 
